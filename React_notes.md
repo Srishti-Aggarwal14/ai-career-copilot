@@ -3062,3 +3062,253 @@ setError(false);
 - Displayed dynamic resume details.
 - Displayed current upload time.
 - Reset component state using "Upload Again".
+
+# 📘 React Learning Notes – Day 9
+
+## 📌 Topic
+- useEffect Hook
+- Dependency Array
+- Side Effects in React
+
+---
+
+# What is useEffect?
+
+`useEffect()` is a React Hook used to perform side effects after a component renders.
+
+Examples:
+- API Calls
+- Timers (`setTimeout`, `setInterval`)
+- Updating Browser Title
+- Event Listeners
+- Local Storage
+
+---
+
+## Syntax
+
+```jsx
+useEffect(() => {
+
+    // Side Effect
+
+}, []);
+```
+
+---
+
+## Why useEffect?
+
+Without useEffect:
+
+```jsx
+console.log("Hello");
+```
+
+Runs after every render.
+
+With useEffect:
+
+```jsx
+useEffect(() => {
+    console.log("Hello");
+}, []);
+```
+
+Runs only once when the component loads.
+
+---
+
+# Dependency Array
+
+## 1. No Dependency Array
+
+```jsx
+useEffect(() => {
+    console.log("Hello");
+});
+```
+
+Runs after every render.
+
+---
+
+## 2. Empty Dependency Array
+
+```jsx
+useEffect(() => {
+    console.log("Hello");
+}, []);
+```
+
+Runs only once after the first render.
+
+---
+
+## 3. Specific Dependency
+
+```jsx
+useEffect(() => {
+    console.log("Count Changed");
+}, [count]);
+```
+
+Runs whenever `count` changes.
+
+---
+
+# useEffect with State
+
+```jsx
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+    console.log(count);
+}, [count]);
+```
+
+Whenever count changes,
+React runs the effect again.
+
+---
+
+# setTimeout Example
+
+```jsx
+useEffect(() => {
+
+    setTimeout(() => {
+
+        setMessage("Ready to Crack Placements 🚀");
+
+    }, 3000);
+
+}, []);
+```
+
+Shows a new message after 3 seconds.
+
+---
+
+# Multiple Timers
+
+```jsx
+setTimeout(() => {
+    setMessage("Checking Resume 📄");
+}, 2000);
+
+setTimeout(() => {
+    setMessage("Preparing Interview Questions 🎤");
+}, 4000);
+
+setTimeout(() => {
+    setMessage("Ready to Crack Placements 🚀");
+}, 6000);
+```
+
+Each timeout starts counting from component load.
+
+---
+
+# Browser Title Example
+
+```jsx
+useEffect(() => {
+
+    document.title = `Clicks : ${count}`;
+
+}, [count]);
+```
+
+Browser tab title updates whenever `count` changes.
+
+---
+
+# Side Effects
+
+Side effects include:
+
+- API Requests
+- Timers
+- Updating Document Title
+- Local Storage
+- Event Listeners
+
+These should be written inside `useEffect()`.
+
+---
+
+# Interview Questions
+
+### What is useEffect?
+
+A React Hook used to perform side effects after rendering.
+
+---
+
+### Difference between useState and useEffect?
+
+useState:
+Stores and updates data.
+
+useEffect:
+Runs side effects after rendering.
+
+---
+
+### Difference between
+
+```jsx
+useEffect(() => {})
+```
+
+```jsx
+useEffect(() => {}, [])
+```
+
+```jsx
+useEffect(() => {}, [count])
+```
+
+No Dependency:
+Runs after every render.
+
+Empty Dependency:
+Runs only once.
+
+Specific Dependency:
+Runs whenever the specified dependency changes.
+
+---
+
+# Projects Built
+
+✅ Welcome Animation
+
+✅ Counter
+
+✅ Browser Title Changer
+
+---
+
+# Day 9 Summary
+
+Learned:
+- useEffect
+- Dependency Array
+- Side Effects
+- Timers
+- Browser Title Update
+- Console Logging
+
+Q. Why do we use setTimeOut like 2000,4000,6000 and not 2000 every time?
+This is because setTimeOut starts counting whjen the component loads if we will use 2000 then all 3 components would be loaded at the same time and only last msg would be visible.
+
+🏆 Interview Question
+
+Q: Why do we use useEffect for document.title instead of writing it directly inside the component?
+
+Answer:
+Because changing the browser title is a side effect. React components should primarily return UI. Operations like updating the document title, making API calls, or starting timers are side effects, so they belong inside useEffect.
+
+Important pt-use effect is used to perform side effects after the component renders.
