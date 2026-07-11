@@ -6,6 +6,9 @@ import ResumeForm from "./components/ResumeForm";
 import Welcome from "./components/Welcome";
 import Counter from "./components/Counter";
 import TitleChanger from "./components/TitleChanger";
+import LoginStatus from "./components/LoginStatus";
+import DarkMode from "./components/DarkMode";
+import Interview from "./components/Interview";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
       <Welcome />
       <Counter />
       <TitleChanger />
+      <LoginStatus />
+      <DarkMode />
+      <Interview />
     </div>
   );
 }

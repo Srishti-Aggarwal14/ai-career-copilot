@@ -3312,3 +3312,263 @@ Answer:
 Because changing the browser title is a side effect. React components should primarily return UI. Operations like updating the document title, making API calls, or starting timers are side effects, so they belong inside useEffect.
 
 Important pt-use effect is used to perform side effects after the component renders.
+# 📘 React Learning Notes – Day 10
+
+# 📌 Topic
+
+- Conditional Rendering
+- Ternary Operator
+- Logical AND (&&)
+- Toggle State
+- Multiple UI States
+
+---
+
+# What is Conditional Rendering?
+
+Conditional Rendering means displaying different UI based on a condition.
+
+Example:
+
+- Logged In → Welcome Screen
+- Logged Out → Login Screen
+
+---
+
+# Ternary Operator
+
+Syntax
+
+```jsx
+condition ? trueValue : falseValue
+```
+
+Example
+
+```jsx
+const age = 20;
+
+age >= 18 ? "Adult" : "Minor";
+```
+
+---
+
+# React Example
+
+```jsx
+{
+isLoggedIn
+?
+"Welcome"
+:
+"Please Login"
+}
+```
+
+---
+
+# Toggle State
+
+```jsx
+const [dark, setDark] = useState(false);
+```
+
+Updating
+
+```jsx
+setDark(!dark);
+```
+
+If
+
+```
+false
+```
+
+↓
+
+```
+true
+```
+
+↓
+
+```
+false
+```
+
+It keeps toggling.
+
+---
+
+# Dynamic Button Text
+
+```jsx
+<button>
+
+{
+dark
+?
+"Disable"
+:
+"Enable"
+}
+
+</button>
+```
+
+---
+
+# Logical AND (&&)
+
+Syntax
+
+```jsx
+condition && value
+```
+
+Example
+
+```jsx
+status === 1 && "Interview Started"
+```
+
+If condition is true,
+
+React displays the text.
+
+If false,
+
+Nothing is rendered.
+
+---
+
+# Multiple Conditions
+
+```jsx
+status === 0 && "Not Started"
+
+status === 1 && "Started"
+
+status === 2 && "Completed"
+```
+
+---
+
+# Why Boolean Didn't Work?
+
+Boolean stores only
+
+```
+true
+
+false
+```
+
+Interview Challenge had
+
+```
+Not Started
+
+Started
+
+Completed
+```
+
+Hence we used
+
+```jsx
+const [status, setStatus] = useState(0);
+```
+
+---
+
+# If Else in React
+
+```jsx
+if(status === 0){
+
+setStatus(1);
+
+}
+
+else if(status === 1){
+
+setStatus(2);
+
+}
+
+else{
+
+setStatus(0);
+
+}
+```
+
+---
+
+# Projects Built
+
+✅ Login Status
+
+✅ Resume Status
+
+✅ Dark Mode Toggle
+
+✅ Interview Status Tracker
+
+---
+
+# Interview Questions
+
+### What is Conditional Rendering?
+
+Displaying different UI based on conditions.
+
+---
+
+### Difference between
+
+```jsx
+condition ? A : B
+```
+
+and
+
+```jsx
+condition && A
+```
+
+Ternary
+
+Shows one of two values.
+
+Logical AND
+
+Shows only when condition is true.
+
+---
+
+### Why use Toggle?
+
+To switch between two states.
+
+Example
+
+- Login / Logout
+
+- Dark / Light Mode
+
+- Show / Hide Password
+
+---
+
+# Day 10 Summary
+
+Learned
+
+- Conditional Rendering
+- Ternary
+- Logical AND
+- Toggle State
+- Multiple UI States
