@@ -59,15 +59,15 @@ function Dashboard() {
 
         </p>
 
-        <div className="progress-section">
+        <div className="dashboard-progress-section">
 
           <strong>🎯 Resume Score</strong>
 
-          <div className="progress-bar">
+          <div className="dashboard-progress-bar">
 
             <div
 
-              className="progress-fill"
+              className="dashboard-progress-fill"
 
               style={{
 
@@ -187,7 +187,7 @@ function Dashboard() {
 
         </ul>
 
-        <div className="button-group">
+        <div className="dashboard-button-group">
 
           <button>
 

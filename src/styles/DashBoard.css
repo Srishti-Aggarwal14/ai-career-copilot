@@ -16,13 +16,16 @@
 }
 
 .dashboard-card {
-  width: min(500px, 100%);
+  width: 500px;
+  max-width:95%;
   margin: auto;
   background: white;
   border-radius: 15px;
   padding: 30px;
   text-align: left;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+  overflow:hidden;
 }
 
 .dashboard-card p {
@@ -31,24 +34,34 @@
   color: #333;
 }
 
-.progress-section {
+.dashboard-progress-section {
   margin-top: 20px;
+  width:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+
 }
 
-.progress-bar {
+.dashboard-progress-bar {
   width: 100%;
+  max-width:100%;
   height: 18px;
   background: #ddd;
   border-radius: 20px;
   overflow: hidden;
   margin-top: 10px;
+  display: block;
+  box-sizing:border-box;
 }
 
-.progress-fill {
+.dashboard-progress-fill {
   width:0;
   height: 100%;
-  border-radius: inherit;
-  transition: width .5s;
+  border-radius: 20px;
+  transition: width .5s ease;
 }
 
 .score {
@@ -67,18 +80,19 @@
 }
 
 .dashboard-card ul {
+  padding-left:20px;
   margin-top: 15px;
-  line-height: 2;
+  line-height: 1.5;
 }
 
-.button-group {
+.dashboard-button-group {
   display: flex;
   justify-content: space-between;
   gap: 12px;
   margin-top: 20px;
 }
 
-.button-group button {
+.dashboard-button-group button {
   flex: 1;
 }
 
