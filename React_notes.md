@@ -5353,3 +5353,92 @@ Built a professional DSA Tracker with:
 ---
 
 # ✅ Day 16 Completed
+
+# Day 17 — AI Resume Analyzer 🚀
+
+## Topics Covered
+
+- Resume Upload UI
+- File Validation (PDF/DOC/DOCX)
+- AI Loading Animation
+- Resume Analysis Screen
+- Animated ATS Score
+- Progress Bars
+- Resume Strengths
+- AI Suggestions
+- Random AI Scores
+- Dynamic Resume Rating
+- PDF Report Generation using jsPDF
+
+---
+
+## Concepts Learned
+
+### File Upload
+
+```jsx
+<input
+type="file"
+accept=".pdf,.doc,.docx"
+/>
+```
+
+---
+
+### useEffect Animation
+
+Animated ATS score from 0 to final score.
+
+---
+
+### Random Scores
+
+Generated using
+
+```js
+Math.floor(Math.random()*21)+75
+```
+
+---
+
+### Dynamic Badge
+
+Excellent
+
+Good
+
+Needs Improvement
+
+depending upon ATS score.
+
+---
+
+### PDF Generation
+
+Used jsPDF
+
+```bash
+npm install jspdf
+```
+
+Generated downloadable Resume Report.
+
+---
+
+## Features Added
+
+- Upload Resume
+- AI Analysis
+- AI Thinking Animation
+- ATS Score
+- Progress Bars
+- Resume Suggestions
+- Resume Strengths
+- Download PDF Report
+- Responsive Design
+
+---
+
+## Outcome
+
+The Resume Analyzer now behaves like a real AI Resume Screening application.

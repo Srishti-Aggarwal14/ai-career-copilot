@@ -14,6 +14,7 @@ import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Demo from "./pages/Demo";
+import ResumeAnalyzer from "./pages/ResumeAnalyzer";
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
 
         <Route path="/demo" element={<Demo />} />
+
+        <Route path="/resume-analyzer"  element={<ResumeAnalyzer />} />
 
       </Routes>
 

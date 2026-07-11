@@ -57,6 +57,15 @@ function Navbar() {
         >
           DSA Tracker
         </NavLink>
+
+        {" | "}
+
+        <NavLink
+          to="/resume-analyzer"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Resume Analyzer
+        </NavLink>
       </div>
     </nav>
   );
