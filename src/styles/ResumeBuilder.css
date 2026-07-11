@@ -1,0 +1,256 @@
+.builder{
+  display:flex;
+  gap:40px;
+  justify-content:center;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  padding:40px;
+  background:#f4f7fc;
+  min-height:100vh;
+}
+
+/* ================= LEFT PANEL ================= */
+
+.builder-form{
+  width:430px;
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.builder-form h1{
+  text-align:center;
+  font-size:28px;
+  color:#2563eb;
+  margin-bottom:25px;
+}
+
+.builder-form h3{
+  margin-top:25px;
+  color:#2563eb;
+}
+
+.builder-form label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.builder-form input,
+.builder-form textarea,
+.builder-form select{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:15px;
+  box-sizing:border-box;
+  resize:none;
+}
+
+.builder-form input:focus,
+.builder-form textarea:focus,
+.builder-form select:focus{
+  outline:none;
+  border-color:#2563eb;
+  box-shadow:0 0 6px rgba(37,99,235,.2);
+}
+
+/* ================= INPUT ROW ================= */
+
+.input-row{
+  display:flex;
+  gap:10px;
+}
+
+.input-row input{
+  flex:1;
+}
+
+.input-row button{
+  width:90px;
+  margin:10px 0;
+}
+
+/* ================= THEME ================= */
+
+.theme-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.theme-buttons button{
+  flex:1;
+  font-size:18px;
+}
+
+.download-btn{
+  width:100%;
+  margin-top:30px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+/* ================= RIGHT PANEL ================= */
+
+.resume-preview{
+  width:520px;
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+  transition:.3s;
+}
+
+/* ================= HEADER ================= */
+
+.resume-header{
+  padding:30px;
+  color:white;
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.resume-header h2{
+  margin:0;
+  color:white;
+}
+
+.resume-header p{
+  margin-top:8px;
+  width:auto;
+  color:white;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-pic{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid white;
+}
+
+.profile-placeholder{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:rgba(255,255,255,.25);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:40px;
+}
+
+/* ================= CONTENT ================= */
+
+.resume-section{
+  padding:25px 30px;
+  border-bottom:1px solid #eee;
+}
+
+.resume-section:last-child{
+  border-bottom:none;
+}
+
+.resume-section h3{
+  margin-bottom:12px;
+}
+
+.resume-section p{
+  width:auto;
+  color:#444;
+  line-height:1.7;
+}
+
+/* ================= LIST ================= */
+
+.resume-section ul{
+  list-style:none;
+  padding:0;
+}
+
+.resume-section li{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#eef3ff;
+  padding:10px 15px;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+/* ================= DELETE ================= */
+
+.delete-btn{
+  margin:0;
+  background:#dc2626;
+  padding:6px 10px;
+  font-size:12px;
+}
+
+.delete-btn:hover{
+  background:#b91c1c;
+}
+
+/* ================= TEMPLATE STYLES ================= */
+
+.modern{
+  border-top:10px solid #2563eb;
+}
+
+.classic{
+  border-top:10px solid #16a34a;
+}
+
+.minimal{
+  border-top:10px solid #9333ea;
+}
+
+/* ================= BUTTONS ================= */
+
+button{
+  transition:.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:950px){
+
+.builder{
+flex-direction:column;
+align-items:center;
+}
+
+.builder-form,
+.resume-preview{
+width:95%;
+}
+
+.resume-header{
+flex-direction:column;
+text-align:center;
+}
+
+.theme-buttons{
+flex-direction:column;
+}
+
+.input-row{
+flex-direction:column;
+}
+
+.input-row button{
+width:100%;
+}
+
+}

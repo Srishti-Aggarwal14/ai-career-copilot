@@ -5442,3 +5442,176 @@ Generated downloadable Resume Report.
 ## Outcome
 
 The Resume Analyzer now behaves like a real AI Resume Screening application.
+
+# 🚀 Day 18 — AI Resume Builder
+
+## 📚 Topics Covered
+
+- Resume Builder
+- Live Resume Preview
+- useState
+- useEffect
+- Local Storage
+- Dynamic Lists
+- Theme Switching
+- File Upload
+- jsPDF
+- AI Generated Summary
+
+---
+
+# 🧠 Concepts Learned
+
+## 1. Live Form Handling
+
+Used `useState` to update the resume preview instantly while typing.
+
+```jsx
+const [resume, setResume] = useState({
+  name: "",
+  email: "",
+  experience: "",
+});
+```
+
+---
+
+## 2. Dynamic Input Handling
+
+```jsx
+const handleChange = (e) => {
+  setResume({
+    ...resume,
+    [e.target.name]: e.target.value,
+  });
+};
+```
+
+One function updates multiple fields.
+
+---
+
+## 3. Dynamic Skills
+
+Users can:
+
+- Add Skills
+- Remove Skills
+- AI Suggest Skills
+
+Used:
+
+- map()
+- filter()
+- spread operator
+
+---
+
+## 4. Dynamic Projects
+
+Implemented:
+
+- Add Project
+- Delete Project
+
+using arrays.
+
+---
+
+## 5. AI Skill Suggestions
+
+Added predefined AI-recommended skills like:
+
+- React
+- Java
+- Python
+- MongoDB
+- SQL
+- Git
+- JavaScript
+- Node.js
+
+---
+
+## 6. Profile Photo Upload
+
+Used
+
+```jsx
+URL.createObjectURL(file)
+```
+
+to preview the uploaded image.
+
+---
+
+## 7. Theme Switcher
+
+Implemented three resume themes:
+
+- 🔵 Modern
+- 🟢 Classic
+- 🟣 Minimal
+
+using React state.
+
+---
+
+## 8. Local Storage
+
+Resume data now persists after refresh.
+
+### Load
+
+```javascript
+localStorage.getItem()
+```
+
+### Save
+
+```javascript
+localStorage.setItem()
+```
+
+---
+
+## 9. AI Professional Summary
+
+Generated a dynamic professional summary using user information and selected skills.
+
+---
+
+## 10. Resume PDF
+
+Used jsPDF.
+
+Installation:
+
+```bash
+npm install jspdf
+```
+
+Generated downloadable resume PDF.
+
+---
+
+# ✨ Features Completed
+
+- ✅ Live Resume Preview
+- ✅ Profile Photo Upload
+- ✅ AI Summary
+- ✅ Dynamic Skills
+- ✅ AI Skill Suggestions
+- ✅ Dynamic Projects
+- ✅ Resume Templates
+- ✅ Theme Switcher
+- ✅ Local Storage
+- ✅ Auto Resume Loading
+- ✅ Download Resume PDF
+- ✅ Responsive Design
+
+---
+
+# 🎯 Learning Outcome
+
+Built a portfolio-level AI Resume Builder that allows users to create, preview, customize, save, and download resumes using React.

@@ -66,6 +66,15 @@ function Navbar() {
         >
           Resume Analyzer
         </NavLink>
+
+        {" | "}
+
+        <NavLink
+          to="/resume-builder"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Resume Builder
+        </NavLink>
       </div>
     </nav>
   );

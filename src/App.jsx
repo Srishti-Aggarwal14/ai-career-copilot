@@ -15,6 +15,7 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Demo from "./pages/Demo";
 import ResumeAnalyzer from "./pages/ResumeAnalyzer";
+import ResumeBuilder from "./pages/ResumeBuilder";
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
         <Route path="/demo" element={<Demo />} />
 
         <Route path="/resume-analyzer"  element={<ResumeAnalyzer />} />
+
+        <Route path="/resume-builder" element={<ResumeBuilder />} />
 
       </Routes>
 
