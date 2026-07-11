@@ -4568,3 +4568,401 @@ Topics Covered:
 - Dashboard UI
 - Progress Bar
 - CSS Separation
+
+
+# 📅 Day 15 – AI Career Chat & Knowledge Base
+
+## 🎯 Goal
+
+Build an AI Career Chat interface similar to ChatGPT using React.
+
+---
+
+# 📚 Topics Covered
+
+- Chat UI
+- useState with Arrays
+- Rendering Lists using map()
+- Controlled Components
+- Auto Scroll using useRef()
+- useEffect()
+- Typing Indicator
+- Enter Key Support
+- autoFocus
+- AI Knowledge Base
+- Dynamic Responses
+
+---
+
+# 📚 Chat UI
+
+Created a professional chat interface with:
+
+- AI Messages
+- User Messages
+- Input Box
+- Send Button
+
+---
+
+# 📚 useState with Arrays
+
+Instead of storing one message:
+
+```jsx
+const [message, setMessage] = useState("");
+```
+
+Store multiple messages.
+
+```jsx
+const [messages, setMessages] = useState([]);
+```
+
+Each message is an object.
+
+Example:
+
+```jsx
+{
+   sender:"AI",
+   text:"Hello"
+}
+```
+
+---
+
+# 📚 Rendering Chat Messages
+
+Used map() to display every message.
+
+```jsx
+messages.map((msg,index)=>(
+    <div key={index}>
+        {msg.text}
+    </div>
+))
+```
+
+---
+
+# 📚 Controlled Input
+
+Input value is controlled by React.
+
+```jsx
+value={input}
+```
+
+Updates state whenever user types.
+
+```jsx
+onChange={(e)=>setInput(e.target.value)}
+```
+
+---
+
+# 📚 Sending Messages
+
+Created sendMessage() function.
+
+Steps:
+
+1. Check empty input
+2. Store User Message
+3. Show Typing...
+4. Generate AI Reply
+5. Add AI Message
+6. Clear Input
+
+---
+
+# 📚 AI Knowledge Base
+
+Instead of writing huge if-else statements, responses are stored in a separate file.
+
+```
+src
+│
+├── data
+│     aiResponses.js
+```
+
+Example:
+
+```javascript
+const aiResponses = {
+
+amazon:"Practice DSA",
+
+google:"Practice System Design"
+
+}
+```
+
+---
+
+# 📚 Searching Responses
+
+Instead of
+
+```jsx
+if(...)
+else if(...)
+```
+
+Used
+
+```jsx
+for(const key in aiResponses){
+
+if(question.includes(key)){
+
+reply=aiResponses[key];
+
+}
+
+}
+```
+
+Advantages
+
+✔ Cleaner Code
+
+✔ Easy to Extend
+
+✔ More Professional
+
+---
+
+# 📚 Typing Indicator
+
+Created
+
+```jsx
+const [typing,setTyping]=useState(false);
+```
+
+Before AI replies
+
+```jsx
+setTyping(true);
+```
+
+After reply
+
+```jsx
+setTyping(false);
+```
+
+Output
+
+AI
+
+Typing...
+
+---
+
+# 📚 Auto Scroll
+
+Used
+
+```jsx
+const bottomRef=useRef(null);
+```
+
+Whenever a new message arrives
+
+```jsx
+bottomRef.current?.scrollIntoView({
+
+behavior:"smooth"
+
+});
+```
+
+Automatically scrolls to latest message.
+
+---
+
+# 📚 Enter Key Support
+
+Instead of clicking Send every time.
+
+```jsx
+onKeyDown={(e)=>{
+
+if(e.key==="Enter"){
+
+sendMessage();
+
+}
+
+}}
+```
+
+---
+
+# 📚 Auto Focus
+
+Cursor automatically starts inside input.
+
+```jsx
+autoFocus
+```
+
+Looks similar to ChatGPT.
+
+---
+
+# 📚 useRef()
+
+Used to access DOM elements directly.
+
+Example
+
+```jsx
+const bottomRef=useRef(null);
+```
+
+---
+
+# 📚 useEffect()
+
+Whenever messages change
+
+```jsx
+useEffect(()=>{
+
+scrollToBottom();
+
+},[messages]);
+```
+
+---
+
+# 📚 Keywords Supported
+
+The chatbot currently understands:
+
+- hello
+- hi
+- amazon
+- google
+- microsoft
+- tcs
+- infosys
+- wipro
+- accenture
+- java
+- react
+- python
+- dsa
+- leetcode
+- projects
+- internship
+- interview
+- resume
+
+---
+
+# 📚 Project Structure
+
+```
+src
+│
+├── pages
+│     CareerChat.jsx
+│
+├── styles
+│     CareerChat.css
+│
+├── data
+│     aiResponses.js
+```
+
+---
+
+# 📚 Interview Questions
+
+### Q1 Why store messages in an array?
+
+Because chat contains multiple messages.
+
+---
+
+### Q2 Why use map()?
+
+To display every message dynamically.
+
+---
+
+### Q3 Why use useRef()?
+
+To directly access DOM elements.
+
+---
+
+### Q4 Why use autoFocus?
+
+Automatically focuses input when page loads.
+
+---
+
+### Q5 Why separate AI responses into another file?
+
+Cleaner code.
+
+Easy maintenance.
+
+Easy scalability.
+
+---
+
+### Q6 Difference between useRef and useState?
+
+useState
+
+- Causes re-render
+
+useRef
+
+- Does not cause re-render
+- Stores DOM references
+
+---
+
+# 📚 Today's Features
+
+✅ AI Chat
+
+✅ Chat UI
+
+✅ Typing Animation
+
+✅ Auto Scroll
+
+✅ Enter Key
+
+✅ AI Knowledge Base
+
+✅ Multiple Company Responses
+
+✅ Professional Folder Structure
+
+---
+
+# ✅ Day 15 Completed
+
+Topics Learned
+
+- useRef()
+- Chat UI
+- map()
+- Arrays in State
+- AI Knowledge Base
+- Controlled Inputs
+- Dynamic Rendering
+- Typing Indicator
+- Auto Scroll
+- Enter Key Support
