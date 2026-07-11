@@ -4966,3 +4966,390 @@ Topics Learned
 - Typing Indicator
 - Auto Scroll
 - Enter Key Support
+
+## ✅ Day 15 Completed
+
+### Learned
+
+- useRef()
+- Chat UI
+- AI Knowledge Base
+- Auto Scroll
+- Typing Animation
+- Enter Key Support
+- Dynamic Rendering
+
+### Built
+
+- AI Career Chat
+- Company-wise Career Guidance
+- ChatGPT-like Interface
+- Knowledge Base using JavaScript Object
+- Professional Chat UI
+
+# 📅 Day 16 – DSA Tracker (Part 1 & Part 2)
+
+## 🎯 Goal
+
+Build a complete DSA Tracker similar to LeetCode where users can:
+
+- Add problems
+- Mark solved
+- Delete problems
+- Track progress
+- Search problems
+- Filter by difficulty
+- Store data permanently using Local Storage
+
+---
+
+# 📚 Topics Covered
+
+- CRUD Operations
+- useState
+- useEffect
+- Local Storage
+- Arrays of Objects
+- map()
+- filter()
+- sort()
+- Conditional Rendering
+- Progress Bar
+- Statistics Cards
+
+---
+
+# 📚 CRUD Operations
+
+CRUD means
+
+- Create
+- Read
+- Update
+- Delete
+
+Our tracker performs all four operations.
+
+---
+
+# 📚 Create
+
+Adding a new problem
+
+```jsx
+setProblems([...problems, newProblem]);
+```
+
+---
+
+# 📚 Read
+
+Displaying problems using
+
+```jsx
+problems.map(...)
+```
+
+---
+
+# 📚 Update
+
+Marking a problem as solved
+
+```jsx
+problems.map(item =>
+item.id===id
+? {...item, solved:!item.solved}
+: item
+)
+```
+
+---
+
+# 📚 Delete
+
+Removing a problem
+
+```jsx
+problems.filter(item=>item.id!==id)
+```
+
+---
+
+# 📚 useEffect()
+
+Used to save data whenever problems change.
+
+```jsx
+useEffect(()=>{
+
+localStorage.setItem(
+"dsaProblems",
+JSON.stringify(problems)
+);
+
+},[problems]);
+```
+
+---
+
+# 📚 Local Storage
+
+Stores data inside browser.
+
+Data remains even after refreshing the page.
+
+Store
+
+```jsx
+localStorage.setItem()
+```
+
+Read
+
+```jsx
+localStorage.getItem()
+```
+
+---
+
+# 📚 Search Feature
+
+Used
+
+```jsx
+filter()
+```
+
+to search problems.
+
+```jsx
+item.name
+.toLowerCase()
+.includes(search.toLowerCase())
+```
+
+---
+
+# 📚 Filter Feature
+
+Dropdown options
+
+- All
+- Easy
+- Medium
+- Hard
+
+Displays only selected difficulty.
+
+---
+
+# 📚 Sorting
+
+Automatically sorts
+
+Easy
+
+↓
+
+Medium
+
+↓
+
+Hard
+
+using
+
+```jsx
+sort()
+```
+
+---
+
+# 📚 Progress Bar
+
+Formula
+
+```jsx
+progress=
+
+(solved/total)*100
+```
+
+Width
+
+```jsx
+style={{
+width:`${progress}%`
+}}
+```
+
+---
+
+# 📚 Statistics Cards
+
+Shows
+
+- Total
+- Solved
+- Pending
+
+---
+
+# 📚 Conditional Rendering
+
+Congratulations message
+
+```jsx
+{
+problems.length>0 &&
+solvedCount===problems.length &&
+(...)
+}
+```
+
+---
+
+# 📚 Empty State
+
+If no problems exist
+
+Display
+
+```
+Start your DSA Journey 🚀
+```
+
+---
+
+# 📚 Features Built
+
+✅ Add Problem
+
+✅ Delete Problem
+
+✅ Mark Solved
+
+✅ Undo
+
+✅ Progress Bar
+
+✅ Search
+
+✅ Filter
+
+✅ Local Storage
+
+✅ Statistics
+
+✅ Empty State
+
+✅ Congratulations Message
+
+✅ Difficulty Colors
+
+✅ Auto Sorting
+
+---
+
+# 📚 Interview Questions
+
+### Q1 What is CRUD?
+
+Create
+
+Read
+
+Update
+
+Delete
+
+---
+
+### Q2 Why use map()?
+
+To display list items.
+
+---
+
+### Q3 Why use filter()?
+
+To remove or search data.
+
+---
+
+### Q4 Difference between map() and filter()?
+
+map()
+
+Transforms every element.
+
+filter()
+
+Returns only matching elements.
+
+---
+
+### Q5 Why use Local Storage?
+
+To persist data after page refresh.
+
+---
+
+### Q6 Difference between Local Storage and useState?
+
+useState
+
+Temporary
+
+Local Storage
+
+Permanent until manually deleted.
+
+---
+
+### Q7 Why use useEffect with Local Storage?
+
+Automatically updates browser storage whenever state changes.
+
+---
+
+# 📚 Folder Structure
+
+```
+src
+│
+├── pages
+│     DSATracker.jsx
+│
+├── styles
+│     DSATracker.css
+│
+├── data
+│
+└── components
+```
+
+---
+
+# 🏆 Today's Achievement
+
+Built a professional DSA Tracker with:
+
+✔ CRUD
+
+✔ Search
+
+✔ Filter
+
+✔ Progress Tracking
+
+✔ Statistics Dashboard
+
+✔ Persistent Storage
+
+✔ Responsive Design
+
+---
+
+# ✅ Day 16 Completed
