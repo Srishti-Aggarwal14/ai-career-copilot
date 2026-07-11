@@ -1,3 +1,4 @@
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -11,6 +12,8 @@ import DSATracker from "./pages/DSATracker";
 import Profile from "./pages/Profile";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
+import NotFound from "./pages/NotFound";
+import Demo from "./pages/Demo";
 
 function App() {
   return (
@@ -38,6 +41,10 @@ function App() {
         <Route path="/career-chat" element={<CareerChat />} />
 
         <Route path="/dsa" element={<DSATracker />} />
+
+        <Route path="*" element={<NotFound />} />
+
+        <Route path="/demo" element={<Demo />} />
 
       </Routes>
 

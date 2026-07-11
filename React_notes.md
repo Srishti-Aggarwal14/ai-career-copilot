@@ -3758,3 +3758,209 @@ Learned
 - Nested Routing
 - Outlet
 - Components vs Pages
+
+# 📘 React Learning Notes – Day 12
+
+## 📌 Topics Covered
+
+- NavLink
+- Active Links
+- 404 Page
+- useNavigate
+- Programmatic Navigation
+
+---
+
+# What is NavLink?
+
+`NavLink` is similar to `Link`, but it can automatically detect the current active page.
+
+Example:
+
+```jsx
+import { NavLink } from "react-router-dom";
+
+<NavLink to="/resume">Resume</NavLink>
+```
+
+---
+
+# Link vs NavLink
+
+## Link
+
+```jsx
+<Link to="/resume">Resume</Link>
+```
+
+- Used for navigation
+- Doesn't know which page is active
+
+---
+
+## NavLink
+
+```jsx
+<NavLink
+  to="/resume"
+  className={({ isActive }) =>
+    isActive ? "active" : ""
+  }
+>
+  Resume
+</NavLink>
+```
+
+- Used for navigation
+- Knows which page is currently active
+- Helpful for navigation bars
+
+---
+
+# Active Link Styling
+
+Example CSS
+
+```css
+nav a.active{
+    color: yellow;
+    border-bottom:3px solid yellow;
+}
+```
+
+When user visits
+
+```
+/resume
+```
+
+Resume link becomes highlighted.
+
+---
+
+# What is a 404 Page?
+
+A 404 page is shown when a user visits a route that does not exist.
+
+Example:
+
+```
+/abcd
+```
+
+Output:
+
+```
+404 😢
+
+Page Not Found
+```
+
+---
+
+# Creating a 404 Route
+
+```jsx
+<Route path="*" element={<NotFound />} />
+```
+
+Always keep this route at the end.
+
+---
+
+# What is useNavigate?
+
+`useNavigate` is a React Router hook used to navigate to another page using JavaScript.
+
+Import
+
+```jsx
+import { useNavigate } from "react-router-dom";
+```
+
+Create
+
+```jsx
+const navigate = useNavigate();
+```
+
+Navigate
+
+```jsx
+navigate("/resume");
+```
+
+---
+
+# Example
+
+```jsx
+<button onClick={() => navigate("/resume")}>
+    Go To Resume
+</button>
+```
+
+---
+
+# Why use useNavigate?
+
+Instead of asking the user to click a link, the application can navigate automatically.
+
+Examples:
+
+- Login → Dashboard
+- Resume Upload → Dashboard
+- Interview Completed → Result Page
+- Logout → Home
+
+---
+
+# Programmatic Navigation
+
+Navigation controlled by JavaScript instead of user clicking a link.
+
+Example
+
+```jsx
+navigate("/dashboard");
+```
+
+---
+
+# Interview Questions
+
+## Difference between Link and NavLink?
+
+Link is used for navigation.
+
+NavLink is used for navigation and also detects the active page.
+
+---
+
+## What is useNavigate?
+
+A hook that allows navigation using JavaScript.
+
+---
+
+## What is a 404 Page?
+
+A page displayed when the requested route does not exist.
+
+---
+
+## Why should `path="*"` always be last?
+
+Because it matches every unknown route. If placed earlier, it may prevent other routes from being matched.
+
+---
+
+# Day 12 Summary
+
+Today I learned:
+
+- NavLink
+- Active Link Highlight
+- 404 Page
+- useNavigate
+- Programmatic Navigation

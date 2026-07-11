@@ -1,36 +1,64 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-
     <nav>
-
       <h2>AI Career Copilot</h2>
 
-      <Link to="/">Home</Link>
+      <div>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Home
+        </NavLink>
 
-      {" | "}
+        {" | "}
 
-      <Link to="/resume">Resume</Link>
+        <NavLink
+          to="/resume"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Resume
+        </NavLink>
 
-      {" | "}
+        {" | "}
 
-      <Link to="/interview">Interview</Link>
+        <NavLink
+          to="/interview"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Interview
+        </NavLink>
 
-      {" | "}
+        {" | "}
 
-      <Link to="/dashboard">Dashboard</Link>
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Dashboard
+        </NavLink>
 
-      {" | "}
+        {" | "}
 
-      <Link to="/career-chat">Career Chat</Link>
+        <NavLink
+          to="/career-chat"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Career Chat
+        </NavLink>
 
-      {" | "}
+        {" | "}
 
-      <Link to="/dsa">DSA Tracker</Link>
-
+        <NavLink
+          to="/dsa"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          DSA Tracker
+        </NavLink>
+      </div>
     </nav>
-
   );
 }
 
