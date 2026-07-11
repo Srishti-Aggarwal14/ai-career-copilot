@@ -3,10 +3,41 @@ body {
   margin: 0;
 }
 
-nav {
-  background-color: #2563eb;
-  color: white;
-  padding: 15px 30px;
+nav{
+    background:#2563eb;
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+nav h2{
+
+    color:white;
+
+    margin:0;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin-left:20px;
+
+    font-weight:bold;
+
+}
+
+nav a:hover{
+
+    text-decoration:underline;
+
 }
 
 main {

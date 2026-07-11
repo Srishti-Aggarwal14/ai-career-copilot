@@ -3572,3 +3572,189 @@ Learned
 - Logical AND
 - Toggle State
 - Multiple UI States
+# 📘 React Learning Notes – Day 11
+
+# 📌 Topic
+
+- React Router
+- BrowserRouter
+- Routes
+- Route
+- Link
+- Nested Routes
+- Outlet
+
+---
+
+# What is React Router?
+
+React Router is a library that allows us to create multiple pages in a React application without reloading the browser.
+
+---
+
+# Installation
+
+```bash
+npm install react-router-dom
+```
+
+---
+
+# BrowserRouter
+
+```jsx
+<BrowserRouter>
+
+<App />
+
+</BrowserRouter>
+```
+
+It enables routing in a React application.
+
+---
+
+# Routes
+
+```jsx
+<Routes>
+
+<Route />
+
+</Routes>
+```
+
+Acts as a container for all routes.
+
+---
+
+# Route
+
+```jsx
+<Route path="/" element={<Home />} />
+```
+
+- path → URL
+- element → Component to render
+
+Example
+
+```
+/ → Home
+
+/resume → Resume
+
+/interview → Interview
+```
+
+---
+
+# Link
+
+```jsx
+<Link to="/resume">
+
+Resume
+
+</Link>
+```
+
+Unlike HTML `<a>` tags, Link changes pages without refreshing the browser.
+
+---
+
+# Page Structure
+
+```
+pages/
+
+Home.jsx
+
+Resume.jsx
+
+Interview.jsx
+
+Dashboard.jsx
+
+CareerChat.jsx
+
+DSATracker.jsx
+```
+
+---
+
+# Components vs Pages
+
+Components
+
+- Small reusable UI
+
+Examples
+
+- Navbar
+- Hero
+- Feature Card
+
+Pages
+
+- Complete screens
+
+Examples
+
+- Home
+- Dashboard
+- Resume
+
+---
+
+# Nested Routes
+
+Nested Routes allow child pages inside a parent page.
+
+Example
+
+```
+Dashboard
+
+|
+
+|-- Profile
+
+|-- Analytics
+
+|-- Settings
+```
+
+---
+
+# Outlet
+
+```jsx
+<Outlet />
+```
+
+Displays the selected child route inside the parent page.
+
+---
+
+# Why React Router?
+
+- Faster navigation
+- No page refresh
+- Better user experience
+- Used in almost every React project
+
+---
+
+# Day 11 Summary
+
+Learned
+
+- React Router
+- BrowserRouter
+- Routes
+- Route
+- Link
+- Nested Routing
+- Outlet
+- Components vs Pages
