@@ -3964,3 +3964,268 @@ Today I learned:
 - 404 Page
 - useNavigate
 - Programmatic Navigation
+
+# 📘 React Learning Notes – Day 13
+
+## Topics Covered
+
+- React Router Dynamic Routes
+- URL Parameters
+- useParams()
+- useLocation()
+- useNavigate()
+- Dynamic Resume Data
+- Rendering Lists using map()
+
+---
+
+# Dynamic Routes
+
+Dynamic routes allow different data to be displayed using the same component.
+
+Example:
+
+```jsx
+<Route path="/resume/:id" element={<Resume />} />
+```
+
+Examples:
+
+```
+/resume/101
+/resume/102
+/resume/103
+```
+
+---
+
+# useParams()
+
+Used to access URL parameters.
+
+```jsx
+import { useParams } from "react-router-dom";
+
+const { id } = useParams();
+```
+
+Output:
+
+```
+101
+```
+
+---
+
+# useLocation()
+
+Used to know the current URL.
+
+```jsx
+const location = useLocation();
+
+location.pathname
+```
+
+Output
+
+```
+/resume/101
+```
+
+---
+
+# useNavigate()
+
+Used to navigate programmatically.
+
+```jsx
+const navigate = useNavigate();
+
+navigate("/");
+```
+
+Returns user to Home page.
+
+---
+
+# Rendering Lists
+
+Instead of writing multiple cards manually:
+
+```jsx
+<Card />
+<Card />
+<Card />
+```
+
+React uses
+
+```jsx
+array.map()
+```
+
+Example
+
+```jsx
+resumes.map((resume) => (
+    <Card />
+))
+```
+
+---
+
+# Dynamic Resume Data
+
+Created
+
+```
+src/data/resumes.js
+```
+
+```jsx
+const resumes = [
+    {
+        id:101,
+        name:"Srishti Aggarwal"
+    }
+]
+```
+
+Retrieve data
+
+```jsx
+const resume = resumes.find(
+    item => item.id === Number(id)
+);
+```
+
+---
+
+# Why use Number(id)?
+
+useParams() returns a string.
+
+```
+"101"
+```
+
+Our array stores numbers.
+
+```
+101
+```
+
+Convert string to number
+
+```jsx
+Number(id)
+```
+
+---
+
+# Handling Invalid Routes
+
+```jsx
+if(!resume){
+    return <h1>Resume Not Found</h1>;
+}
+```
+
+---
+
+# Real World Examples
+
+Amazon
+
+```
+/product/12345
+```
+
+LinkedIn
+
+```
+/in/srishti-aggarwal
+```
+
+GitHub
+
+```
+/Srishti-Aggarwal14
+```
+
+Netflix
+
+```
+/watch/902348
+```
+
+All use Dynamic Routing.
+
+---
+
+# Interview Questions
+
+### What is Dynamic Routing?
+
+A route whose URL changes based on parameters.
+
+---
+
+### What does useParams() return?
+
+Returns URL parameters.
+
+---
+
+### What is useLocation() used for?
+
+Returns current location information.
+
+---
+
+### Difference
+
+useParams()
+
+↓
+
+Returns parameters.
+
+useLocation()
+
+↓
+
+Returns full URL information.
+
+useNavigate()
+
+↓
+
+Navigate programmatically.
+
+---
+
+# Functions Learned
+
+✅ map()
+
+✅ find()
+
+✅ Number()
+
+---
+
+# Day 13 Summary
+
+Today I learned
+
+- Dynamic Routes
+- URL Parameters
+- useParams
+- useLocation
+- useNavigate
+- map()
+- find()
+- Dynamic Resume Cards
+- Handling Invalid Routes
