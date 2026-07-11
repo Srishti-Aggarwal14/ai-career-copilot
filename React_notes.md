@@ -4229,3 +4229,342 @@ Today I learned
 - find()
 - Dynamic Resume Cards
 - Handling Invalid Routes
+
+# 📅 Day 14 – Context API & Professional AI Dashboard
+
+## 🎯 Goal
+
+Learn how to share data globally using React Context API and build a professional AI Dashboard for the AI Career Copilot project.
+
+---
+
+# 📚 What is Context API?
+
+Context API is React's built-in feature for sharing data between multiple components without passing props manually through every level.
+
+Without Context API:
+
+App
+↓
+Dashboard
+↓
+Resume
+↓
+Profile
+
+Data has to be passed through every component.
+
+This is called **Prop Drilling**.
+
+With Context API:
+
+UserContext
+   ↓
+Dashboard
+Resume
+Career Chat
+Profile
+
+Every component can directly access the same data.
+
+---
+
+# 📚 createContext()
+
+Creates a global context.
+
+Example:
+
+```jsx
+import { createContext } from "react";
+
+export const UserContext = createContext();
+```
+
+---
+
+# 📚 Context Provider
+
+The Provider supplies data to all child components.
+
+```jsx
+<UserContext.Provider value={{ user, setUser }}>
+    <App />
+</UserContext.Provider>
+```
+
+The `value` prop contains the data that will be available everywhere.
+
+---
+
+# 📚 useContext()
+
+Reads data from Context.
+
+```jsx
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+
+const { user } = useContext(UserContext);
+```
+
+Now any component can access the user information.
+
+---
+
+# 📚 Updating Context
+
+❌ Wrong
+
+```jsx
+user.name = "Rahul";
+```
+
+Never modify state directly.
+
+✅ Correct
+
+```jsx
+setUser({
+    ...user,
+    name: "Rahul"
+});
+```
+
+React automatically updates the UI.
+
+---
+
+# 📚 Dashboard Features Built
+
+✅ Welcome User
+
+✅ Resume Name
+
+✅ Resume Score
+
+✅ Resume Progress Bar
+
+✅ Resume Badge
+
+✅ Resume Status
+
+✅ AI Suggestions
+
+✅ Download Resume Button
+
+✅ Analyze Again Button
+
+✅ Switch User Button
+
+✅ Nested Dashboard Routes
+
+---
+
+# 📚 Resume Progress Bar
+
+Width changes dynamically according to score.
+
+```jsx
+<div
+    style={{
+        width: `${user.score}%`
+    }}
+></div>
+```
+
+Example:
+
+92%
+
+██████████████████░░
+
+---
+
+# 📚 Conditional Rendering
+
+React can render different UI depending on conditions.
+
+Example:
+
+```jsx
+{
+user.score >= 90
+?
+"🏆 Excellent Resume"
+:
+"⚠ Needs Improvement"
+}
+```
+
+---
+
+# 📚 Dynamic Styling
+
+Example:
+
+```jsx
+style={{
+color:
+user.score >= 90
+?
+"green"
+:
+"orange"
+}}
+```
+
+This changes the text color based on score.
+
+---
+
+# 📚 Switch User Logic
+
+Used Context API to toggle between two users.
+
+Example:
+
+```jsx
+if(user.name === "Srishti Aggarwal"){
+
+    setUser(...Rahul...)
+
+}
+else{
+
+    setUser(...Srishti...)
+
+}
+```
+
+This is called **State Toggling**.
+
+---
+
+# 📚 Professional Folder Structure
+
+```
+src
+│
+├── components
+├── context
+│     UserContext.jsx
+│
+├── pages
+│     Dashboard.jsx
+│
+├── styles
+│     Dashboard.css
+│
+├── data
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+# 📚 Why Separate CSS?
+
+Instead of writing hundreds of inline styles,
+
+Create
+
+```
+Dashboard.css
+```
+
+Advantages:
+
+- Cleaner JSX
+- Easier maintenance
+- Reusable styles
+- Professional project structure
+
+---
+
+# 📚 Interview Questions
+
+### Q1. What is Context API?
+
+Context API is React's built-in state management system used to share data globally without prop drilling.
+
+---
+
+### Q2. What problem does Context API solve?
+
+It removes Prop Drilling.
+
+---
+
+### Q3. Which Hook is used with Context?
+
+```jsx
+useContext()
+```
+
+---
+
+### Q4. Which component provides data?
+
+```jsx
+Context.Provider
+```
+
+---
+
+### Q5. Can Context store state?
+
+Yes.
+
+Usually with
+
+```jsx
+useState()
+```
+
+inside the Provider.
+
+---
+
+### Q6. Difference between Props and Context?
+
+Props
+
+- Parent → Child
+
+Context
+
+- Global
+- Accessible anywhere
+
+---
+
+# 📚 Today's Project
+
+Built a Professional AI Dashboard including:
+
+- AI Resume Dashboard
+- Resume Progress Bar
+- Dynamic Resume Badge
+- AI Suggestions
+- Resume Score
+- Switch User Feature
+- Global User Context
+- Dashboard CSS
+
+---
+
+# ✅ Day 14 Completed
+
+Topics Covered:
+
+- Context API
+- createContext()
+- Context Provider
+- useContext()
+- Global State
+- Dynamic Styling
+- Conditional Rendering
+- Dashboard UI
+- Progress Bar
+- CSS Separation
