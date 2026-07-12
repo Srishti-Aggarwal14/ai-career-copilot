@@ -19,6 +19,7 @@ import ResumeBuilder from "./pages/ResumeBuilder";
 import JobRecommendation from "./pages/JobRecommendation";
 import JobDetails from "./pages/JobDetails";
 import SavedJobs from "./pages/SavedJobs";
+import PlacementTracker from "./pages/PlacementTracker";
 
 function App() {
   return (
@@ -60,6 +61,8 @@ function App() {
         <Route path="/job/:id" element={<JobDetails />} />
 
         <Route path="/saved-jobs" element={<SavedJobs />} />
+
+        <Route path="/placement-tracker" element={<PlacementTracker />} />
 
       </Routes>
 

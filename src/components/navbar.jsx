@@ -81,6 +81,8 @@ function Navbar() {
                   📚 DSA Tracker
                 </NavLink>
 
+                <NavLink to="/placement-tracker">🏢 Placement Tracker</NavLink>
+
                 <NavLink to="/interview">
                   🎤 Mock Interview
                 </NavLink>
