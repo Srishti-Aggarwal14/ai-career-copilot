@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import jobs from "../data/jobs";
 import placements from "../data/placements";
+import interviews from "../data/interviews";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
@@ -10,72 +11,43 @@ function Dashboard() {
   const { user, setUser } = useContext(UserContext);
 
   const savedJobs = JSON.parse(
-
     localStorage.getItem("savedJobs")
-
   ) || [];
 
   const totalJobs = jobs.length;
 
   const bestMatch = Math.max(
-
     ...jobs.map((job) => job.match)
-
   );
 
-  const totalApplications = placements.length;
+  const totalPlacements = placements.length;
 
-  const offers = placements.filter(
-
-    (company) =>
-
-      company.status === "Offer"
-
-  ).length;
-
-  const interviews = placements.filter(
-
-    (company) =>
-
-      company.status === "Interview"
-
-  ).length;
-
-  const rejected = placements.filter(
-
-    (company) =>
-
-      company.status === "Rejected"
-
-  ).length;
-
-  const placementReadiness = Math.round(
+  const placementProgress = Math.round(
 
     (
+      placements.filter(
+        (item) => item.status === "Offer Received"
+      ).length /
 
-      (
-
-        offers +
-
-        interviews
-
-      ) /
-
-      totalApplications
+      Math.max(placements.length, 1)
 
     ) * 100
 
   );
 
+  const upcomingInterviews = interviews.filter(
+
+    (item) =>
+
+      item.status === "Upcoming" ||
+
+      item.status === "Scheduled"
+
+  ).length;
+
   const switchUser = () => {
 
-    if (
-
-      user.name ===
-
-      "Srishti Aggarwal"
-
-    ) {
+    if (user.name === "Srishti Aggarwal") {
 
       setUser({
 
@@ -87,9 +59,7 @@ function Dashboard() {
 
         status: "Reviewed ⭐",
 
-        suggestion:
-
-          "2 Suggestions Pending 📝",
+        suggestion: "2 Suggestions Pending 📝",
 
       });
 
@@ -107,9 +77,7 @@ function Dashboard() {
 
         status: "Uploaded ✅",
 
-        suggestion:
-
-          "Available 🤖",
+        suggestion: "Available 🤖",
 
       });
 
@@ -135,7 +103,9 @@ function Dashboard() {
 
         </h1>
 
-      </div>      <div className="dashboard-card">
+      </div>
+
+      <div className="dashboard-card">
 
         <p>
 
@@ -149,9 +119,7 @@ function Dashboard() {
 
           {user.resume}
 
-        </p>
-
-        <div className="dashboard-progress-section">
+        </p>        <div className="dashboard-progress-section">
 
           <strong>
 
@@ -300,6 +268,18 @@ function Dashboard() {
           <li>
 
             ✔ Include GitHub Link
+
+          </li>
+
+          <li>
+
+            ✔ Add Quantified Achievements
+
+          </li>
+
+          <li>
+
+            ✔ Tailor Resume for ATS
 
           </li>
 
@@ -617,13 +597,13 @@ function Dashboard() {
 
           <p>
 
-            Applications
+            Progress
 
           </p>
 
           <h2 className="card-number">
 
-            {totalApplications}
+            {placementProgress}%
 
           </h2>
 
@@ -635,39 +615,42 @@ function Dashboard() {
 
         </Link>
 
-        <div className="feature-card">
+        <Link
+          to="/interview-scheduler"
+          className="feature-card"
+        >
 
           <div className="card-icon">
 
-            📈
+            📅
 
           </div>
 
           <h3>
 
-            Placement Readiness
+            Interview Scheduler
 
           </h3>
 
           <p>
 
-            Interview Ready
+            Upcoming Interviews
 
           </p>
 
           <h2 className="card-number">
 
-            {placementReadiness}%
+            {upcomingInterviews}
 
           </h2>
 
           <button>
 
-            View →
+            Open →
 
           </button>
 
-        </div>
+        </Link>
 
         <Link
           to="/interview"
@@ -706,9 +689,89 @@ function Dashboard() {
 
         </Link>
 
-      </div>      <div className="dashboard-extra-grid">
+      </div>      <div className="dashboard-analytics">
 
-        <div className="dashboard-info-card">
+        <div className="analytics-card">
+
+          <h2>
+
+            📊 Dashboard Analytics
+
+          </h2>
+
+          <p>
+
+            Total Jobs Available :
+
+            <strong>
+
+              {" "}
+
+              {totalJobs}
+
+            </strong>
+
+          </p>
+
+          <p>
+
+            Saved Jobs :
+
+            <strong>
+
+              {" "}
+
+              {savedJobs.length}
+
+            </strong>
+
+          </p>
+
+          <p>
+
+            Highest AI Match :
+
+            <strong>
+
+              {" "}
+
+              {bestMatch}%
+
+            </strong>
+
+          </p>
+
+          <p>
+
+            Placement Progress :
+
+            <strong>
+
+              {" "}
+
+              {placementProgress}%
+
+            </strong>
+
+          </p>
+
+          <p>
+
+            Upcoming Interviews :
+
+            <strong>
+
+              {" "}
+
+              {upcomingInterviews}
+
+            </strong>
+
+          </p>
+
+        </div>
+
+        <div className="analytics-card">
 
           <h2>
 
@@ -720,31 +783,61 @@ function Dashboard() {
 
             <li>
 
-              ⭐ Resume Score : {user.score}/100
+              ✔ Resume ATS Score :
+
+              {" "}
+
+              {user.score}%
 
             </li>
 
             <li>
 
-              💼 Jobs Available : {totalJobs}
+              ✔ AI Match :
+
+              {" "}
+
+              {bestMatch}%
 
             </li>
 
             <li>
 
-              ❤️ Saved Jobs : {savedJobs.length}
+              ✔ Saved Jobs :
+
+              {" "}
+
+              {savedJobs.length}
 
             </li>
 
             <li>
 
-              📈 Placement Readiness : {placementReadiness}%
+              ✔ Placement Progress :
+
+              {" "}
+
+              {placementProgress}%
 
             </li>
 
             <li>
 
-              🏆 Highest AI Match : {bestMatch}%
+              ✔ Upcoming Interviews :
+
+              {" "}
+
+              {upcomingInterviews}
+
+            </li>
+
+            <li>
+
+              ✔ Resume Status :
+
+              {" "}
+
+              {user.status}
 
             </li>
 
@@ -752,11 +845,11 @@ function Dashboard() {
 
         </div>
 
-        <div className="dashboard-info-card">
+        <div className="analytics-card">
 
           <h2>
 
-            📊 Placement Statistics
+            🎯 Daily Goals
 
           </h2>
 
@@ -764,25 +857,31 @@ function Dashboard() {
 
             <li>
 
-              🏢 Total Applications : {totalApplications}
+              ✅ Solve 2 DSA Problems
 
             </li>
 
             <li>
 
-              🎤 Interviews : {interviews}
+              ✅ Apply to 3 Jobs
 
             </li>
 
             <li>
 
-              🎉 Offers : {offers}
+              ✅ Improve Resume
 
             </li>
 
             <li>
 
-              ❌ Rejected : {rejected}
+              ✅ Practice Interview
+
+            </li>
+
+            <li>
+
+              ✅ Complete One Project Task
 
             </li>
 
@@ -790,11 +889,15 @@ function Dashboard() {
 
         </div>
 
-        <div className="dashboard-info-card">
+      </div>
+
+      <hr />      <div className="dashboard-analytics">
+
+        <div className="analytics-card">
 
           <h2>
 
-            📝 Recent Activity
+            🕒 Recent Activity
 
           </h2>
 
@@ -802,25 +905,31 @@ function Dashboard() {
 
             <li>
 
-              ✅ Resume analyzed successfully.
+              📄 Resume analyzed successfully
 
             </li>
 
             <li>
 
-              ❤️ Saved a new AI Engineer job.
+              ❤️ Job saved to favourites
 
             </li>
 
             <li>
 
-              🏢 Updated placement application.
+              🏢 Placement Tracker updated
 
             </li>
 
             <li>
 
-              📚 Solved 73 DSA problems.
+              📅 Interview scheduled
+
+            </li>
+
+            <li>
+
+              📚 DSA progress synced
 
             </li>
 
@@ -828,37 +937,47 @@ function Dashboard() {
 
         </div>
 
-        <div className="dashboard-info-card">
+        <div className="analytics-card">
 
           <h2>
 
-            🎯 Daily Goal
+            💡 Career Tips
 
           </h2>
 
-          <p>
+          <ul>
 
-            Solve 2 DSA questions.
+            <li>
 
-          </p>
+              🚀 Keep your resume updated every week.
 
-          <p>
+            </li>
 
-            Apply to 3 companies.
+            <li>
 
-          </p>
+              💼 Apply to at least 3 jobs daily.
 
-          <p>
+            </li>
 
-            Improve Resume Score above 95%.
+            <li>
 
-          </p>
+              📚 Practice DSA consistently.
 
-          <p>
+            </li>
 
-            Practice one Mock Interview.
+            <li>
 
-          </p>
+              🎤 Give one mock interview every week.
+
+            </li>
+
+            <li>
+
+              🌟 Build strong GitHub projects.
+
+            </li>
+
+          </ul>
 
         </div>
 
@@ -875,6 +994,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-
-
-

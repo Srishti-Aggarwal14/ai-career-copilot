@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Navbar.css";
@@ -17,28 +16,36 @@ function Navbar() {
 
         <NavLink
           to="/"
-          className={({ isActive }) => isActive ? "active" : ""}
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
         >
           Home
         </NavLink>
 
         <NavLink
           to="/resume"
-          className={({ isActive }) => isActive ? "active" : ""}
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
         >
           Resume
         </NavLink>
 
         <NavLink
           to="/dashboard"
-          className={({ isActive }) => isActive ? "active" : ""}
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
         >
           Dashboard
         </NavLink>
 
         <NavLink
           to="/career-chat"
-          className={({ isActive }) => isActive ? "active" : ""}
+          className={({ isActive }) =>
+            isActive ? "active" : ""
+          }
         >
           Career Chat
         </NavLink>
@@ -81,7 +88,13 @@ function Navbar() {
                   📚 DSA Tracker
                 </NavLink>
 
-                <NavLink to="/placement-tracker">🏢 Placement Tracker</NavLink>
+                <NavLink to="/placement-tracker">
+                  🏢 Placement Tracker
+                </NavLink>
+
+                <NavLink to="/interview-scheduler">
+                  📅 Interview Scheduler
+                </NavLink>
 
                 <NavLink to="/interview">
                   🎤 Mock Interview

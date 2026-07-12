@@ -2,53 +2,47 @@
 
   padding:40px;
 
-  min-height:100vh;
-
   background:#f4f7fc;
+
+  min-height:100vh;
 
 }
 
 .welcome{
 
-  text-align:center;
-
-  margin-bottom:35px;
+  margin-bottom:30px;
 
 }
 
 .welcome h2{
 
-  color:#555;
+  color:#2563eb;
 
-  margin-bottom:10px;
+  margin-bottom:8px;
 
 }
 
 .user-name{
 
-  color:#2563eb;
-
-  font-size:42px;
+  font-size:38px;
 
   font-weight:bold;
+
+  color:#111827;
 
 }
 
 .dashboard-card{
 
-  width:550px;
-
-  max-width:100%;
-
-  margin:30px auto;
-
-  background:white;
-
-  border-radius:18px;
+  background:#fff;
 
   padding:30px;
 
+  border-radius:18px;
+
   box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+  margin-bottom:30px;
 
 }
 
@@ -56,13 +50,13 @@
 
   margin:12px 0;
 
-  color:#333;
+  color:#444;
 
 }
 
 .dashboard-progress-section{
 
-  margin-top:20px;
+  margin:25px 0;
 
 }
 
@@ -70,9 +64,9 @@
 
   width:100%;
 
-  height:18px;
+  height:24px;
 
-  background:#ddd;
+  background:#e5e7eb;
 
   border-radius:20px;
 
@@ -92,19 +86,15 @@
 
 .score{
 
-  margin-top:12px;
+  margin-top:10px;
 
   font-weight:bold;
-
-  font-size:18px;
 
 }
 
 .badge{
 
-  text-align:center;
-
-  margin:25px 0;
+  margin:20px 0;
 
 }
 
@@ -122,7 +112,7 @@
 
   flex:1;
 
-  padding:12px;
+  padding:14px;
 
   border:none;
 
@@ -148,15 +138,15 @@
 
 .switch-user{
 
-  margin-top:20px;
-
-  text-align:center;
+  margin-top:25px;
 
 }
 
 .switch-user button{
 
-  padding:12px 24px;
+  width:100%;
+
+  padding:14px;
 
   border:none;
 
@@ -176,25 +166,27 @@
 
   background:#15803d;
 
-}
+}.dashboard-links{
 
-.dashboard-links{
+  display:flex;
 
-  text-align:center;
+  justify-content:center;
 
-  margin:35px 0;
+  gap:15px;
+
+  margin:30px 0;
+
+  font-weight:600;
 
 }
 
 .dashboard-links a{
 
-  text-decoration:none;
-
   color:#2563eb;
 
-  font-weight:bold;
+  text-decoration:none;
 
-  margin:0 10px;
+  transition:.3s;
 
 }
 
@@ -206,13 +198,15 @@
 
 .modules-heading{
 
+  margin:35px 0 25px;
+
+  color:#111827;
+
   text-align:center;
 
-  margin:40px 0 30px;
+}
 
-  color:#1e293b;
-
-}.feature-grid{
+.feature-grid{
 
   display:grid;
 
@@ -220,7 +214,7 @@
 
   gap:25px;
 
-  margin-top:20px;
+  margin-bottom:40px;
 
 }
 
@@ -236,11 +230,11 @@
 
   text-decoration:none;
 
-  color:#222;
+  color:inherit;
 
-  box-shadow:0 8px 20px rgba(0,0,0,.10);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
 
-  transition:all .3s ease;
+  transition:.3s;
 
 }
 
@@ -262,31 +256,27 @@
 
 .feature-card h3{
 
-  margin:12px 0;
+  margin-bottom:10px;
 
-  color:#2563eb;
-
-  font-size:22px;
+  color:#111827;
 
 }
 
 .feature-card p{
 
-  color:#666;
+  color:#6b7280;
 
-  margin:10px 0;
+  margin-bottom:12px;
 
 }
 
 .card-number{
 
+  color:#2563eb;
+
   font-size:34px;
 
-  font-weight:bold;
-
-  color:#16a34a;
-
-  margin:18px 0;
+  margin-bottom:20px;
 
 }
 
@@ -298,7 +288,7 @@
 
   color:white;
 
-  padding:12px 22px;
+  padding:12px 20px;
 
   border-radius:10px;
 
@@ -314,146 +304,176 @@
 
   background:#1d4ed8;
 
-}.dashboard-extra-grid{
+}.dashboard-analytics{
 
   display:grid;
 
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
   gap:25px;
 
-  margin-top:45px;
+  margin:40px 0;
 
 }
 
-.dashboard-info-card{
+.analytics-card{
 
-  background:white;
+  background:#fff;
+
+  padding:28px;
 
   border-radius:18px;
 
-  padding:25px;
-
-  box-shadow:0 8px 20px rgba(0,0,0,.10);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
 
   transition:.3s;
 
 }
 
-.dashboard-info-card:hover{
+.analytics-card:hover{
 
-  transform:translateY(-6px);
+  transform:translateY(-8px);
 
-  box-shadow:0 14px 28px rgba(37,99,235,.18);
+  box-shadow:0 15px 30px rgba(37,99,235,.18);
 
 }
 
-.dashboard-info-card h2{
+.analytics-card h2{
 
   color:#2563eb;
 
   margin-bottom:20px;
 
-  font-size:24px;
-
 }
 
-.dashboard-info-card ul{
-
-  padding-left:20px;
-
-  line-height:2;
-
-  color:#444;
-
-}
-
-.dashboard-info-card li{
-
-  margin-bottom:10px;
-
-}
-
-.dashboard-info-card p{
+.analytics-card p{
 
   margin:12px 0;
 
   color:#444;
 
-  font-size:16px;
+  line-height:1.7;
 
 }
 
-.dashboard hr{
+.analytics-card strong{
 
-  margin:45px 0;
+  color:#111827;
+
+}
+
+.analytics-card ul{
+
+  margin:0;
+
+  padding-left:20px;
+
+}
+
+.analytics-card li{
+
+  margin-bottom:12px;
+
+  color:#444;
+
+  line-height:1.6;
+
+}
+
+.analytics-card li::marker{
+
+  color:#2563eb;
+
+}
+
+hr{
+
+  margin:40px 0;
 
   border:none;
 
   height:1px;
 
-  background:#dcdcdc;
+  background:#d1d5db;
 
-}@media (max-width: 992px){
+}@media (max-width:992px){
 
   .dashboard{
-    padding:30px 20px;
-  }
 
-  .dashboard-card{
-    width:100%;
     padding:25px;
+
   }
 
   .feature-grid{
+
     grid-template-columns:repeat(2,minmax(0,1fr));
+
   }
 
-  .dashboard-extra-grid{
-    grid-template-columns:1fr;
+  .dashboard-analytics{
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
   }
 
 }
 
 @media (max-width:768px){
 
-  .welcome h2{
-    font-size:22px;
+  .dashboard{
+
+    padding:20px;
+
   }
 
   .user-name{
-    font-size:32px;
+
+    font-size:30px;
+
+  }
+
+  .dashboard-card{
+
+    padding:22px;
+
   }
 
   .dashboard-button-group{
+
     flex-direction:column;
+
   }
 
   .dashboard-links{
-    display:flex;
+
     flex-wrap:wrap;
-    justify-content:center;
+
     gap:10px;
+
   }
 
   .feature-grid{
+
     grid-template-columns:1fr;
+
+  }
+
+  .dashboard-analytics{
+
+    grid-template-columns:1fr;
+
   }
 
   .feature-card{
+
     padding:22px;
+
   }
 
-  .card-icon{
-    font-size:42px;
-  }
+  .analytics-card{
 
-  .card-number{
-    font-size:28px;
-  }
+    padding:22px;
 
-  .dashboard-info-card{
-    padding:20px;
   }
 
 }
@@ -461,34 +481,49 @@
 @media (max-width:480px){
 
   .dashboard{
+
     padding:15px;
+
   }
 
   .user-name{
-    font-size:28px;
+
+    font-size:26px;
+
   }
 
-  .dashboard-card{
-    padding:18px;
-    border-radius:14px;
+  .modules-heading{
+
+    font-size:24px;
+
   }
+
+  .card-icon{
+
+    font-size:38px;
+
+  }
+
+  .card-number{
+
+    font-size:28px;
+
+  }
+
+  .feature-card button,
 
   .dashboard-button-group button,
-  .switch-user button,
-  .feature-card button{
+
+  .switch-user button{
+
     width:100%;
+
   }
 
-  .feature-card h3{
+  .analytics-card h2{
+
     font-size:20px;
-  }
 
-  .dashboard-info-card h2{
-    font-size:20px;
-  }
-
-  .dashboard-info-card ul{
-    padding-left:18px;
   }
 
 }
