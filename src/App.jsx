@@ -16,6 +16,9 @@ import NotFound from "./pages/NotFound";
 import Demo from "./pages/Demo";
 import ResumeAnalyzer from "./pages/ResumeAnalyzer";
 import ResumeBuilder from "./pages/ResumeBuilder";
+import JobRecommendation from "./pages/JobRecommendation";
+import JobDetails from "./pages/JobDetails";
+import SavedJobs from "./pages/SavedJobs";
 
 function App() {
   return (
@@ -51,6 +54,12 @@ function App() {
         <Route path="/resume-analyzer"  element={<ResumeAnalyzer />} />
 
         <Route path="/resume-builder" element={<ResumeBuilder />} />
+
+        <Route path="/job-recommendation" element={<JobRecommendation />} />
+
+        <Route path="/job/:id" element={<JobDetails />} />
+
+        <Route path="/saved-jobs" element={<SavedJobs />} />
 
       </Routes>
 

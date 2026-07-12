@@ -1,11 +1,22 @@
 import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import jobs from "../data/jobs";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
 
   const { user, setUser } = useContext(UserContext);
+
+  const savedJobs = JSON.parse(
+    localStorage.getItem("savedJobs")
+  ) || [];
+
+  const totalJobs = jobs.length;
+
+  const bestMatch = Math.max(
+    ...jobs.map((job) => job.match)
+  );
 
   const switchUser = () => {
 
@@ -19,9 +30,7 @@ function Dashboard() {
         suggestion: "2 Suggestions Pending 📝",
       });
 
-    }
-
-    else {
+    } else {
 
       setUser({
         name: "Srishti Aggarwal",
@@ -44,7 +53,9 @@ function Dashboard() {
         <h2>👋 Welcome Back</h2>
 
         <h1 className="user-name">
+
           {user.name}
+
         </h1>
 
       </div>
@@ -249,6 +260,254 @@ function Dashboard() {
 
       </div>
 
+      <h2 className="modules-heading">
+
+        🚀 AI Career Copilot Modules
+
+      </h2>
+
+      <div className="feature-grid">
+
+        <Link
+          to="/resume-analyzer"
+          className="feature-card"
+        >
+
+          <div className="card-icon">
+
+            📄
+
+          </div>
+
+          <h3>Resume Analyzer</h3>
+
+          <p>ATS Score</p>
+
+          <h2 className="card-number">
+
+            92%
+
+          </h2>
+
+          <button>
+
+            Open →
+
+          </button>
+
+        </Link>
+
+        <Link
+          to="/resume-builder"
+          className="feature-card"
+        >
+
+          <div className="card-icon">
+
+            📝
+
+          </div>
+
+          <h3>Resume Builder</h3>
+
+          <p>Last Updated</p>
+
+          <h2 className="card-number">
+
+            Today
+
+          </h2>
+
+          <button>
+
+            Open →
+
+          </button>
+
+        </Link>        <Link
+          to="/dsa"
+          className="feature-card"
+        >
+
+          <div className="card-icon">
+
+            📚
+
+          </div>
+
+          <h3>
+
+            DSA Tracker
+
+          </h3>
+
+          <p>
+
+            Solved Problems
+
+          </p>
+
+          <h2 className="card-number">
+
+            73
+
+          </h2>
+
+          <button>
+
+            Open →
+
+          </button>
+
+        </Link>
+
+        <Link
+          to="/job-recommendation"
+          className="feature-card"
+        >
+
+          <div className="card-icon">
+
+            💼
+
+          </div>
+
+          <h3>
+
+            Job Recommendation
+
+          </h3>
+
+          <p>
+
+            Available Jobs
+
+          </p>
+
+          <h2 className="card-number">
+
+            {totalJobs}
+
+          </h2>
+
+          <button>
+
+            Open →
+
+          </button>
+
+        </Link>
+
+        <Link
+          to="/saved-jobs"
+          className="feature-card"
+        >
+
+          <div className="card-icon">
+
+            ❤️
+
+          </div>
+
+          <h3>
+
+            Saved Jobs
+
+          </h3>
+
+          <p>
+
+            Saved Count
+
+          </p>
+
+          <h2 className="card-number">
+
+            {savedJobs.length}
+
+          </h2>
+
+          <button>
+
+            Open →
+
+          </button>
+
+        </Link>
+
+        <div className="feature-card">
+
+          <div className="card-icon">
+
+            🤖
+
+          </div>
+
+          <h3>
+
+            Highest AI Match
+
+          </h3>
+
+          <p>
+
+            Best Recommendation
+
+          </p>
+
+          <h2 className="card-number">
+
+            {bestMatch}%
+
+          </h2>
+
+          <button>
+
+            AI Powered
+
+          </button>
+
+        </div>
+
+        <Link
+          to="/interview"
+          className="feature-card"
+        >
+
+          <div className="card-icon">
+
+            🎤
+
+          </div>
+
+          <h3>
+
+            Mock Interview
+
+          </h3>
+
+          <p>
+
+            Coming Soon
+
+          </p>
+
+          <h2 className="card-number">
+
+            🚀
+
+          </h2>
+
+          <button>
+
+            Open →
+
+          </button>
+
+        </Link>
+
+      </div>
+
       <hr />
 
       <Outlet />
@@ -260,5 +519,6 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
 
 
