@@ -1,0 +1,67 @@
+.interview-summary{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    margin:20px 0;
+
+    text-align:center;
+
+}
+
+.interview-summary h2{
+
+    color:#4f46e5;
+
+    margin-bottom:10px;
+
+}
+
+.interview-summary p{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+.summary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.summary-grid div{
+
+    background:#f8f9fc;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.summary-grid h3{
+
+    color:#4f46e5;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+.summary-grid span{
+
+    color:#666;
+
+}

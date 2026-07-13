@@ -1,0 +1,45 @@
+.placement-card{
+
+background:white;
+
+padding:25px;
+
+margin-top:30px;
+
+border-radius:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.meter{
+
+height:14px;
+
+background:#e5e7eb;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin:20px 0;
+
+}
+
+.meter-fill{
+
+height:100%;
+
+background:#2563eb;
+
+transition:.8s;
+
+}
+
+body.dark .placement-card{
+
+background:#1f2937;
+
+color:white;
+
+}

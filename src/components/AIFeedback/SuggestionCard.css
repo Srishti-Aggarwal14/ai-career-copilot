@@ -1,0 +1,37 @@
+.suggestion-card{
+
+    background:white;
+
+    padding:24px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    margin-top:20px;
+
+}
+
+.suggestion-card h2{
+
+    color:#4f46e5;
+
+    margin-bottom:15px;
+
+}
+
+.suggestion-card ul{
+
+    padding-left:20px;
+
+}
+
+.suggestion-card li{
+
+    margin:12px 0;
+
+    font-size:16px;
+
+    color:#444;
+
+}

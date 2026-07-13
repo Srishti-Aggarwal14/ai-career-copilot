@@ -5,8 +5,23 @@ import jobs from "../data/jobs";
 import placements from "../data/placements";
 import interviews from "../data/interviews";
 import "../styles/Dashboard.css";
+import StatsCard from "../components/Dashboard/StatsCard";
+import ProgressCard from "../components/Dashboard/ProgressCard";
+import AIInsightsCard from "../components/Dashboard/AIInsightsCard";
+import AnalyticsChart from "../components/Dashboard/AnalyticsChart";
+import ActivityCard from "../components/Dashboard/ActivityCard";
+import { getDashboardData } from "../utils/dashboardData";
+import QuickActions from "../components/Dashboard/QuickActions";
+import AchievementCard from "../components/Dashboard/AchievementCard";
+import DailyChallenge from "../components/Dashboard/DailyChallenge";
+import XPCard from "../components/Dashboard/XPCard";
+import NotificationBell from "../components/Dashboard/NotificationBell";
+import StreakCard from "../components/Dashboard/StreakCard";
+import PlacementMeter from "../components/Dashboard/PlacementMeter";
+import Leaderboard from "../components/Dashboard/Leaderboard";
 
 function Dashboard() {
+  const dashboard = getDashboardData();
 
   const { user, setUser } = useContext(UserContext);
 
@@ -104,6 +119,99 @@ function Dashboard() {
         </h1>
 
       </div>
+      <div className="stats-grid">
+
+  <StatsCard
+    icon="📄"
+    title="Resume ATS"
+    value={`${user.score}%`}
+    color="#2563eb"
+  />
+
+  <StatsCard
+    icon="🎤"
+    title="Mock Interviews"
+    value={dashboard.interviewsTaken}
+    color="#10b981"
+  />
+
+  <StatsCard
+    icon="💻"
+    title="DSA Solved"
+    value={dashboard.dsaSolved}
+    color="#f59e0b"
+  />
+
+  <StatsCard
+    icon="🎯"
+    title="Placement Ready"
+    value={`${Math.round(
+
+(dashboard.resumeScore+
+dashboard.interviewScore)/2
+
+)}%`}
+    color="#ef4444"
+  />
+
+</div>
+<div className="progress-section">
+
+  <ProgressCard
+    title="Resume Quality"
+    value={user.score}
+    color="#2563eb"
+  />
+
+  <ProgressCard
+    title="Interview Readiness"
+    value={82}
+    color="#10b981"
+  />
+
+  <ProgressCard
+    title="DSA Progress"
+    value={63}
+    color="#f59e0b"
+  />
+
+  <ProgressCard
+    title="Communication"
+    value={78}
+    color="#ef4444"
+  />
+
+</div>
+<AIInsightsCard
+  insights={[
+    "Your resume is ATS friendly.",
+    "Your interview performance is improving.",
+    "Practice Dynamic Programming regularly.",
+    "Revise Operating Systems before interviews.",
+    "You are 85% placement ready.",
+    "Keep solving LeetCode consistently."
+  ]}
+/>
+<AnalyticsChart />
+<QuickActions />
+<ActivityCard />
+<AchievementCard />
+<DailyChallenge />
+<XPCard />
+<Leaderboard />
+<StreakCard />
+<PlacementMeter
+
+resume={user.score}
+
+dsa={dashboard.dsaSolved > 300 ? 90 : 75}
+
+interview={dashboard.interviewScore}
+
+projects={82}
+
+/>
+<NotificationBell />
 
       <div className="dashboard-card">
 

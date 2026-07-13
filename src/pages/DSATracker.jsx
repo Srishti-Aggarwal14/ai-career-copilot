@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "../styles/DSATracker.css";
+import { addXP } from "../utils/xpSystem";
+import { addNotification } from "../utils/notificationSystem";
 
 function DSATracker() {
 
@@ -40,15 +42,17 @@ function DSATracker() {
 
     const newProblem = {
 
-      id: Date.now(),
+  id: Date.now(),
 
-      name: problem,
+  name: problem,
 
-      difficulty,
+  difficulty,
 
-      solved: false,
+  solved: false,
 
-    };
+  xpAwarded: false,
+
+};
 
     setProblems([...problems, newProblem]);
 
@@ -62,81 +66,134 @@ function DSATracker() {
 
   const toggleSolved = (id) => {
 
-    setProblems(
+  const updatedProblems = problems.map((item) => {
 
-      problems.map((item) =>
+  if (item.id === id) {
 
-        item.id === id
+    // XP sirf jab unsolved -> solved ho
+    if (!item.solved && !item.xpAwarded) {
+      addXP(5);
+      addNotification(`💻 Solved "${item.name}" (+5 XP)`);
+    }
 
-          ? {
+    return {
 
-              ...item,
+    ...item,
 
-              solved: !item.solved,
+    solved: !item.solved,
 
-            }
+    xpAwarded:
 
-          : item
+        item.xpAwarded || !item.solved,
 
-      )
+};
+  }
 
-    );
+  return item;
 
-  };
+});
+
+  setProblems(updatedProblems);
+
+  // Dashboard ke liye profile update
+  const solvedCount = updatedProblems.filter(
+    (item) => item.solved
+  ).length;
+
+  const profile =
+    JSON.parse(localStorage.getItem("profile")) || {
+      dsaSolved: 0,
+      interviewsTaken: 0,
+    };
+
+  profile.dsaSolved = solvedCount;
+
+  localStorage.setItem(
+    "profile",
+    JSON.stringify(profile)
+  );
+
+};
 
   // ---------------- DELETE ----------------
 
   const deleteProblem = (id) => {
 
-    setProblems(
+  const updatedProblems = problems.filter(
+    (item) => item.id !== id
+  );
 
-      problems.filter(
+  setProblems(updatedProblems);
 
-        (item) => item.id !== id
+  const solvedCount = updatedProblems.filter(
+    (item) => item.solved
+  ).length;
 
-      )
+  const profile =
+    JSON.parse(localStorage.getItem("profile")) || {
+      dsaSolved: 0,
+      interviewsTaken: 0,
+    };
 
-    );
+  profile.dsaSolved = solvedCount;
 
-  };
+  localStorage.setItem(
+    "profile",
+    JSON.stringify(profile)
+  );
+
+};
 
   // ---------------- CLEAR ALL ----------------
 
   const clearAll = () => {
 
-    if (
+  if (window.confirm("Delete all problems?")) {
 
-      window.confirm(
+    setProblems([]);
 
-        "Delete all problems?"
+    const profile =
+      JSON.parse(localStorage.getItem("profile")) || {
+        dsaSolved: 0,
+        interviewsTaken: 0,
+      };
 
-      )
+    profile.dsaSolved = 0;
 
-    ) {
+    localStorage.setItem(
+      "profile",
+      JSON.stringify(profile)
+    );
 
-      setProblems([]);
+  }
 
-    }
-
-  };
+};
 
   // ---------------- RESET ----------------
 
   const resetProgress = () => {
 
-    setProblems(
+  const updatedProblems = problems.map((item) => ({
+    ...item,
+    solved: false,
+  }));
 
-      problems.map((item) => ({
+  setProblems(updatedProblems);
 
-        ...item,
+  const profile =
+    JSON.parse(localStorage.getItem("profile")) || {
+      dsaSolved: 0,
+      interviewsTaken: 0,
+    };
 
-        solved: false,
+  profile.dsaSolved = 0;
 
-      }))
+  localStorage.setItem(
+    "profile",
+    JSON.stringify(profile)
+  );
 
-    );
-
-  };
+};
 
   // ---------------- COUNTS ----------------
 

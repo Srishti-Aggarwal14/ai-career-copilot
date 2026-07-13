@@ -109,3 +109,22 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+body.light{
+
+background:#f4f7fb;
+
+color:#111827;
+
+transition:.3s;
+
+}
+
+body.dark{
+
+background:#111827;
+
+color:white;
+
+transition:.3s;
+
+}

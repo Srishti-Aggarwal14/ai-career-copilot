@@ -1,0 +1,21 @@
+.theme-btn{
+
+background:none;
+
+border:none;
+
+font-size:24px;
+
+cursor:pointer;
+
+margin-left:20px;
+
+transition:.3s;
+
+}
+
+.theme-btn:hover{
+
+transform:rotate(20deg) scale(1.1);
+
+}

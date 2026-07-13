@@ -1,11 +1,7 @@
-import InterviewStatus from "../components/Interview";
+import MockInterview from "./MockInterview";
 
 function Interview() {
-  return (
-    <>
-      <InterviewStatus />
-    </>
-  );
+  return <MockInterview />;
 }
 
 export default Interview;

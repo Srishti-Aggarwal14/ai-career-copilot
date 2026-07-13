@@ -1,0 +1,33 @@
+.streak-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+margin-top:30px;
+
+text-align:center;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.streak-card h1{
+
+font-size:42px;
+
+color:#f97316;
+
+margin:10px 0;
+
+}
+
+body.dark .streak-card{
+
+background:#1f2937;
+
+color:white;
+
+}

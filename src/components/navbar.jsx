@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Navbar.css";
+import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
 
@@ -107,6 +108,7 @@ function Navbar() {
           }
 
         </div>
+        <ThemeToggle />
 
       </div>
 

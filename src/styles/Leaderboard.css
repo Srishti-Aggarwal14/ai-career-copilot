@@ -1,0 +1,37 @@
+.leaderboard-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+margin-top:30px;
+
+}
+
+.leaderboard-row{
+
+transition:.3s;
+
+}
+
+.leaderboard-row:hover{
+
+background:#f8fafc;
+
+border-radius:10px;
+
+padding-left:10px;
+
+}
+
+body.dark .leaderboard-card{
+
+background:#1f2937;
+
+color:white;
+
+}

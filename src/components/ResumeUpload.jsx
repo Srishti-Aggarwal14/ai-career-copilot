@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { jsPDF } from "jspdf";
 import "../styles/ResumeUpload.css";
+import { addXP } from "../utils/xpSystem";
+import { addNotification } from "../utils/notificationSystem";
+
 
 function ResumeUpload() {
 
@@ -21,6 +24,27 @@ function ResumeUpload() {
   const [projectsScore, setProjectsScore] = useState(90);
 
   const [experienceScore, setExperienceScore] = useState(75);
+  useEffect(() => {
+
+  const savedResume = JSON.parse(
+    localStorage.getItem("resumeAnalysis")
+  );
+
+  if (!savedResume) return;
+
+  setAnalyzed(true);
+
+  setAtsScore(savedResume.atsScore);
+
+  setSkillsScore(savedResume.skillsScore);
+
+  setProjectsScore(savedResume.projectsScore);
+
+  setExperienceScore(savedResume.experienceScore);
+
+  setScore(savedResume.score);
+
+}, []);
 
   const handleFileChange = (e) => {
 
@@ -98,11 +122,29 @@ function ResumeUpload() {
 
     setTimeout(() => {
 
-      setLoading(false);
+  setLoading(false);
 
-      setAnalyzed(true);
+setAnalyzed(true);
 
-    }, 2500);
+addXP(20);
+
+addNotification(
+  "📄 Resume analyzed successfully! +20 XP"
+);
+
+  localStorage.setItem(
+    "resumeAnalysis",
+    JSON.stringify({
+      score: ats,
+      atsScore: ats,
+      skillsScore: skills,
+      projectsScore: projects,
+      experienceScore: experience,
+      analyzedOn: new Date().toLocaleString()
+    })
+  );
+
+}, 2500);
 
   };
 
