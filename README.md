@@ -1344,6 +1344,7 @@ The AI Career Copilot project is a complete placement preparation platform that 
 ---
 _Last updated: 15 July 2026_
 =======
+Updated deployment configuration.
 
 ## 📸 Screenshots
 
