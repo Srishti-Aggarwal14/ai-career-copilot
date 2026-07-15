@@ -1,6 +1,6 @@
 # 🌐 Live Demo
 
-👉 https://ai-career-copilot-mpf4.vercel.app
+👉 https://ai-career-copilot-red-one.vercel.app
 # 🚀 AI Career Copilot
 
 <p align="center">
