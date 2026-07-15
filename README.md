@@ -1,3 +1,6 @@
+# 🌐 Live Demo
+
+👉 https://ai-career-copilot-mpf4.vercel.app
 # 🚀 AI Career Copilot
 
 <p align="center">
@@ -1337,5 +1340,12 @@ Special thanks to:
 
 The AI Career Copilot project is a complete placement preparation platform that combines resume analysis, interview preparation, coding practice, analytics, gamification, and career guidance into a single modern web application.
 
+<<<<<<< HEAD
 ---
 _Last updated: 15 July 2026_
+=======
+
+## 📸 Screenshots
+
+Project screenshots are available in the `/screenshots` folder.
+>>>>>>> d7852cb4ebf5d4a3c2363f25a280420302363771
